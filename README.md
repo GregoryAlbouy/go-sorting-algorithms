@@ -59,5 +59,5 @@ go-sorting-algorithms$ go run . -a "MergeSort MergeSortConc QuickSort QuickSortC
 ## Todo
 
 * Implement more funky algorithms
-* Add output `none`/`'cli` (no file generated) as default output value
+* Add output `none`/`cli` (no file generated) as default output value
 * Add output `localhost:PORT` to get the json served on local http server
