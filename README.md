@@ -4,7 +4,7 @@ I had never realized how fascinating sorting algorithms could be, until I saw [t
 
 I also tried to slightly improve the performance of some of them (see [mergesort.go](./algorithms/mergesort.go) and [quicksort.go](./algorithms/quicksort.go)) using concurrency, since it's so easy and pleasant to work with in Go. It can lead to up to 50% and 25% performance improvment respectively.
 
-Finally, I wrote a CLI that benchmarks them and generates a .csv or .json output
+Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or .json file.
 
 ## Algorithms
 
@@ -55,6 +55,24 @@ go-sorting-algorithms$ go run .
 go-sorting-algorithms$ go run . -a "MergeSort MergeSortConc QuickSort QuickSortConc" -s "1000 1000000" -o "excel.csv results.json"
 ```
 ![Full example output](./_example/readme-full-example.png)
+
+#### I don't have Go installed
+
+This is a **no-go**. :poop:
+
+Well, in fact the CLI application is cross-platform compiled and accessible without any additionnal installation through the executables in `/bin` directory.
+
+##### Unix systems
+```console
+path/to/go-sorting-algorithms/bin$ ./gsa -a "MergeSort QuickSort" -s 1000000
+```
+
+##### Windows systems
+```console
+C:\path\to\go-sorting-algorithms\bin>gsa.exe -a "MergeSort QuickSort" -s 1000000
+```
+
+Of course you should never run executables you can't 100% trust, so maybe don't do this.
 
 ## Todo
 
