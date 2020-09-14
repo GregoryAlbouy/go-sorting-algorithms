@@ -48,11 +48,13 @@ Each parameter accepts several values, in that case they must be **quoted** and 
 ```console
 go-sorting-algorithms$ go run .
 ```
+![Minimal example output](./_example/readme-minimal-example.png)
 
 #### Full example
 ```console
 go-sorting-algorithms$ go run . -a "MergeSort MergeSortConc QuickSort QuickSortConc" -s "1000 1000000" -o "excel.csv results.json"
 ```
+![Full example output](./_example/readme-full-example.png)
 
 ## Todo
 
