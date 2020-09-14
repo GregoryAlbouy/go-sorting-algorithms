@@ -47,6 +47,7 @@ var (
 		{"MergeSortConc", alg.MergeSortConc},
 		{"QuickSort", alg.QuickSort},
 		{"QuickSortConc", alg.QuickSortConc},
+		{"RadixSort", alg.RadixSort},
 	}
 
 	defInput = []int{100, 1000, 10000}
