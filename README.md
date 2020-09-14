@@ -8,17 +8,17 @@ Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or 
 
 ## Table of contents
 
-- [Table of contents](#Table-of-contents)
-- [Algorithms](#Algorithms)
-  * [Implemented](#Implemented)
-  * [Coming](#Coming)
-- [CLI](#CLI)
-  * [Usage](#Usage)
-  * [Examples](#Examples)
-    + [Minimal example](#Minimal-example)
-    + [Full example](#Full-example)
-    + [I don't have Go installed](#I-don't-have-Go-installed)
-- [Todo](#Todo)
+- [Table of contents](#table-of-contents)
+- [Algorithms](#algorithms)
+  * [Implemented](#implemented)
+  * [Coming](#coming)
+- [CLI](#cli)
+  * [Usage](#usage)
+  * [Examples](#examples)
+    + [Minimal example](#minimal-example)
+    + [Full example](#full-example)
+    + [I don't have Go installed](#i-dont-have-go-installed)
+- [Todo](#todo)
 
 ## Algorithms
 
