@@ -27,13 +27,13 @@ Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or 
 * Selection Sort
 * Insertion Sort
 * Bubble Sort
-* Merge Sort / Merge Sort Conc (:heart:)
+* Merge Sort :heart: / Merge Sort Conc
 * Quick Sort / Quick Sort Conc
+* Radix Sort
 
 ### Coming
 
 * Cocktail Shaker Sort
-* Radix Sort
 
 ## CLI
 
@@ -57,6 +57,7 @@ Each parameter accepts several values, in that case they must be **quoted** and 
 * MergeSortConc
 * QuickSort
 * QuickSortConc
+* RadixSort
 
 ### Examples
 
