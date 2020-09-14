@@ -45,3 +45,17 @@ func TestDigitCount(t *testing.T) {
 		check(t, tc, got)
 	}
 }
+
+func TestMostDigits(t *testing.T) {
+	testcases := []testcase{
+		{"four digits", []int{24, 19, 1034, 111}, 4},
+		{"negative numbers", []int{3, 9, -73639}, 5},
+		{"equality", []int{222, 293, -938}, 3},
+	}
+
+	for _, tc := range testcases {
+		in := tc.input.([]int)
+		got := mostDigits(in)
+		check(t, tc, got)
+	}
+}

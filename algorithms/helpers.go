@@ -46,6 +46,15 @@ func powInt(a, n int) int {
 	return res
 }
 
+// max returns the greatest number of two ints. Avoids float64 conversion
+// steps from math.Max()
+func max(a, b int) int {
+	if a < b {
+		return b
+	}
+	return a
+}
+
 // digitAt returns the digit at position i (starting from the right at i=0).
 func digitAt(n, i int) int {
 	return (abs(n) / powInt(10, i)) % 10
@@ -57,4 +66,14 @@ func digitCount(n int) int {
 		return 1
 	}
 	return int(math.Floor(math.Log10(math.Abs(float64(n)))) + 1)
+}
+
+// mostDigits returns the number of digits of the integer having the greatest
+// number of digits from the input slice.
+func mostDigits(ns []int) int {
+	maxDigits := 0
+	for _, n := range ns {
+		maxDigits = max(digitCount(n), maxDigits)
+	}
+	return maxDigits
 }

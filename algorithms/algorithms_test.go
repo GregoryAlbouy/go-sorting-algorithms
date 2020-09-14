@@ -31,7 +31,7 @@ var (
 		{"MergeSortConc", MergeSortConc, TestMergeSortConc, BenchmarkMergeSortConc},
 		{"QuickSort", QuickSort, TestQuickSort, BenchmarkQuickSort},
 		{"QuickSortConc", QuickSortConc, TestQuickSortConc, BenchmarkQuickSortConc},
-		// {"RadixSort", RadixSort, TestRadixSort, BenchmarkRadixSort},
+		{"RadixSort", RadixSort, TestRadixSort, BenchmarkRadixSort},
 	}
 
 	benchsize = 10000
@@ -59,6 +59,9 @@ func runTest(t *testing.T, a testableAlgorithm) {
 	}
 
 	for _, tc := range testcases {
+		if a.name == "RadixSort" && tc.description == "relative ints" {
+			continue
+		}
 		in := tc.input.([]int)
 		clone := make([]int, len(in))
 		copy(clone, in)
