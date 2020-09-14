@@ -27,11 +27,20 @@ The CLI tool can generate some comparative data on demand. It takes three parame
 
 | flag | usage | default value |
 | ----- | ----- | ----- |
-| `-a` | Names of algorithms to be tested | `""` (all) |
+| `-a` | Names of algorithms to be tested(*) | `""` (all) |
 | `-s` | Sizes of the arrays to be sorted | `"100 1000 10000"` |
-| `-o` | Filename output (.csv or .json) | `"results.csv"`
+| `-o` | Filename output (.csv or .json) | `"results.csv"` |
 
 Each parameter accepts several values, in that case they must be **quoted** and separated by a space.
+
+(*) Full names list (*not case-sensitive*):
+* BubbleSort
+* SelectionSort
+* InsertionSort
+* MergeSort
+* MergeSortConc
+* QuickSort
+* QuickSortConc
 
 ### Examples
 
