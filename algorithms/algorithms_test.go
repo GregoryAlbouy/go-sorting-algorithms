@@ -9,32 +9,35 @@ import (
 	clog "github.com/gregoryalbouy/go-custom-log"
 )
 
-var benchsize = 10000
-
 type testcase struct {
-	input       []int
-	expected    []int
 	description string
+	input       interface{}
+	expected    interface{}
 }
 
-type testSortingAlgorithm struct {
+type testableAlgorithm struct {
 	name      string
 	sortFunc  sortFunc
 	testFunc  func(*testing.T)
 	benchFunc func(*testing.B)
 }
 
-var sortingAlgorithms = []testSortingAlgorithm{
-	{"BubbleSort", BubbleSort, TestBubbleSort, BenchmarkBubbleSort},
-	{"SelectionSort", SelectionSort, TestSelectionSort, BenchmarkSelectionSort},
-	{"InsertionSort", InsertionSort, TestInsertionSort, BenchmarkInsertionSort},
-	{"MergeSort", MergeSort, TestMergeSort, BenchmarkMergeSort},
-	{"MergeSortConc", MergeSortConc, TestMergeSortConc, BenchmarkMergeSortConc},
-	{"QuickSort", QuickSort, TestQuickSort, BenchmarkQuickSort},
-	{"QuickSortConc", QuickSortConc, TestQuickSortConc, BenchmarkQuickSortConc},
-}
+var (
+	testedAlgorithms = []testableAlgorithm{
+		{"BubbleSort", BubbleSort, TestBubbleSort, BenchmarkBubbleSort},
+		{"SelectionSort", SelectionSort, TestSelectionSort, BenchmarkSelectionSort},
+		{"InsertionSort", InsertionSort, TestInsertionSort, BenchmarkInsertionSort},
+		{"MergeSort", MergeSort, TestMergeSort, BenchmarkMergeSort},
+		{"MergeSortConc", MergeSortConc, TestMergeSortConc, BenchmarkMergeSortConc},
+		{"QuickSort", QuickSort, TestQuickSort, BenchmarkQuickSort},
+		{"QuickSortConc", QuickSortConc, TestQuickSortConc, BenchmarkQuickSortConc},
+		// {"RadixSort", RadixSort, TestRadixSort, BenchmarkRadixSort},
+	}
 
-func runTest(t *testing.T, a testSortingAlgorithm) {
+	benchsize = 10000
+)
+
+func runTest(t *testing.T, a testableAlgorithm) {
 	testcases := []testcase{
 		{
 			description: "positive ints",
@@ -56,12 +59,13 @@ func runTest(t *testing.T, a testSortingAlgorithm) {
 	}
 
 	for _, tc := range testcases {
-		clone := make([]int, len(tc.input))
-		copy(clone, tc.input)
+		in := tc.input.([]int)
+		clone := make([]int, len(in))
+		copy(clone, in)
 
-		got := a.sortFunc(tc.input)
-
-		check(t, tc, got, clone)
+		got := a.sortFunc(in)
+		check(t, tc, got)
+		checkIntegrity(t, in, clone)
 	}
 
 	if t.Failed() {
@@ -90,24 +94,27 @@ func runBenchmark(b *testing.B, sfm sortFuncMap, inputLen ...int) {
 	}
 }
 
-func check(t *testing.T, tc testcase, got, clone []int) {
-	if !reflect.DeepEqual(tc.expected, got) {
-		t.Errorf("incorrect sort (%s): expected %v, got %v\n", tc.description, tc.expected, got)
+func check(t *testing.T, tc testcase, got interface{}) {
+	if !reflect.DeepEqual(got, tc.expected) {
+		t.Errorf("%s: expected %v, got %v", tc.description, tc.expected, got)
 	}
+}
 
-	if !reflect.DeepEqual(tc.input, clone) {
+// checkIntegrity verifies an input array is not altered by a sorting function.
+func checkIntegrity(t *testing.T, input, clone []int) {
+	if !reflect.DeepEqual(input, clone) {
 		t.Error("input slice should not be altered")
 	}
 }
 
 func TestAll(t *testing.T) {
-	for _, a := range sortingAlgorithms {
+	for _, a := range testedAlgorithms {
 		t.Run(a.name, a.testFunc)
 	}
 }
 
 func BenchmarkAll(b *testing.B) {
-	for _, a := range sortingAlgorithms {
+	for _, a := range testedAlgorithms {
 		b.Run(a.name, a.benchFunc)
 	}
 }

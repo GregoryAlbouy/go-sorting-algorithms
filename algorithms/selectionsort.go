@@ -17,7 +17,7 @@ func SelectionSort(input []int) []int {
 			}
 		}
 		if i != imin {
-			Swap(arr, i, imin)
+			swap(arr, i, imin)
 		}
 	}
 

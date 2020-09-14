@@ -2,19 +2,12 @@ package algorithms
 
 import (
 	"log"
+	"math"
 	"math/rand"
 	"time"
 )
 
-// Swap swaps values from a slice
-func Swap(arr []int, i, j int) {
-	if i < 0 || j < 0 || i >= len(arr) || j >= len(arr) {
-		log.Fatal("index out of range")
-	}
-	arr[i], arr[j] = arr[j], arr[i]
-}
-
-// RandomSlice generates a slice of n random numbers
+// RandomSlice generates a slice of n random numbers.
 func RandomSlice(n int) (arr []int) {
 	randMax := 1000000
 	randSrc := rand.NewSource(time.Now().UnixNano())
@@ -24,4 +17,44 @@ func RandomSlice(n int) (arr []int) {
 	}
 
 	return
+}
+
+// swap swaps values from a slice at given indexes.
+func swap(arr []int, i, j int) {
+	if i < 0 || j < 0 || i >= len(arr) || j >= len(arr) {
+		log.Fatal("index out of range")
+	}
+	arr[i], arr[j] = arr[j], arr[i]
+}
+
+// abs returns the absolute value of a given int. Avoids float64 converison
+// steps from math.Abs().
+func abs(n int) int {
+	if n < 0 {
+		return -n
+	}
+	return n
+}
+
+// powInt returns a power n as ints. Avoids float64 conversion steps
+// from math.Pow().
+func powInt(a, n int) int {
+	res := 1
+	for i := 1; i <= n; i++ {
+		res *= a
+	}
+	return res
+}
+
+// digitAt returns the digit at position i (starting from the right at i=0).
+func digitAt(n, i int) int {
+	return (abs(n) / powInt(10, i)) % 10
+}
+
+// digitCount returns the number of digits that constitute number n.
+func digitCount(n int) int {
+	if n == 0 {
+		return 1
+	}
+	return int(math.Floor(math.Log10(math.Abs(float64(n)))) + 1)
 }

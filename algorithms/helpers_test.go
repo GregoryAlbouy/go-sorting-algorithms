@@ -1,25 +1,47 @@
 package algorithms
 
 import (
-	"fmt"
-	"log"
-	"reflect"
 	"testing"
 )
 
 func TestSwap(t *testing.T) {
-	arr := []int{0, 42, 0, -42}
-	expected := []int{-42, 42, 0, 0}
+	tc := testcase{"swap test", []int{0, 42, 0, -42}, []int{-42, 42, 0, 0}}
+	in := tc.input.([]int)
 
-	Swap(arr, 1, 3)
-	Swap(arr, 0, 3)
-	Swap(arr, 0, 1)
+	swap(in, 1, 3)
+	swap(in, 0, 3)
+	swap(in, 0, 1)
 
-	if !reflect.DeepEqual(arr, expected) {
-		log.Panicf("expected %v, got %v", expected, arr)
+	got := in
+	check(t, tc, got)
+}
+
+func TestDigitAt(t *testing.T) {
+	testcases := []testcase{
+		{"position 0", []int{6293, 0}, 3},
+		{"last position", []int{1000, 3}, 1},
+		{"zero", []int{0, 0}, 0},
+		{"negative number", []int{-837, 1}, 3},
+	}
+
+	for _, tc := range testcases {
+		in := tc.input.([]int)
+		got := digitAt(in[0], in[1])
+		check(t, tc, got)
 	}
 }
 
-func TestRandom(t *testing.T) {
-	fmt.Println(RandomSlice(10))
+func TestDigitCount(t *testing.T) {
+	testcases := []testcase{
+		{"positive number", 12345, 5},
+		{"one digit", 8, 1},
+		{"zero", 0, 1},
+		{"negative number", -837, 3},
+	}
+
+	for _, tc := range testcases {
+		in := tc.input.(int)
+		got := digitCount(in)
+		check(t, tc, got)
+	}
 }

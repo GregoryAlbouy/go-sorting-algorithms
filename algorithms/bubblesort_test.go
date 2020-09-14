@@ -5,7 +5,7 @@ import (
 )
 
 func TestBubbleSort(t *testing.T) {
-	runTest(t, testSortingAlgorithm{"BubbleSort", BubbleSort, nil, nil})
+	runTest(t, testableAlgorithm{"BubbleSort", BubbleSort, nil, nil})
 }
 
 func BenchmarkBubbleSort(b *testing.B) {

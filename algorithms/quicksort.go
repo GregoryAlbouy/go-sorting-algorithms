@@ -51,11 +51,11 @@ func pivot(arr []int, start, end int) int {
 	for i := start + 1; i <= end; i++ {
 		if pivot > arr[i] {
 			swapIndex++
-			Swap(arr, i, swapIndex)
+			swap(arr, i, swapIndex)
 		}
 	}
 
-	Swap(arr, start, swapIndex)
+	swap(arr, start, swapIndex)
 
 	return swapIndex
 }

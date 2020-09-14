@@ -5,11 +5,11 @@ import (
 )
 
 func TestMergeSort(t *testing.T) {
-	runTest(t, testSortingAlgorithm{"MergeSort", MergeSort, nil, nil})
+	runTest(t, testableAlgorithm{"MergeSort", MergeSort, nil, nil})
 }
 
 func TestMergeSortConc(t *testing.T) {
-	runTest(t, testSortingAlgorithm{"MergeSortConc", MergeSortConc, nil, nil})
+	runTest(t, testableAlgorithm{"MergeSortConc", MergeSortConc, nil, nil})
 }
 
 func BenchmarkMergeSort(b *testing.B) {
