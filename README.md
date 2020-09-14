@@ -6,6 +6,20 @@ I also tried to slightly improve the performance of some of them (see [mergesort
 
 Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or .json file.
 
+## Table of contents
+
+- [Table of contents](#Table-of-contents)
+- [Algorithms](#Algorithms)
+  * [Implemented](#Implemented)
+  * [Coming](#Coming)
+- [CLI](#CLI)
+  * [Usage](#Usage)
+  * [Examples](#Examples)
+    + [Minimal example](#Minimal-example)
+    + [Full example](#Full-example)
+    + [I don't have Go installed](#I-don't-have-Go-installed)
+- [Todo](#Todo)
+
 ## Algorithms
 
 ### Implemented
@@ -22,6 +36,8 @@ Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or 
 * Radix Sort
 
 ## CLI
+
+### Usage
 
 The CLI tool can generate some comparative data on demand. It takes three parameters:
 
