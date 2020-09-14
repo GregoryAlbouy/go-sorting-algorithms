@@ -1,0 +1,167 @@
+{
+  "algorithms": [
+    "BubbleSort",
+    "SelectionSort",
+    "InsertionSort",
+    "MergeSort",
+    "MergeSortConc",
+    "QuickSort",
+    "QuickSortConc"
+  ],
+  "sizes": [
+    100,
+    1000,
+    10000,
+    100000
+  ],
+  "execution_time": 26468449231,
+  "results": [
+    {
+      "algorithm_name": "BubbleSort",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 53977
+        },
+        {
+          "size": 1000,
+          "duration": 1935598
+        },
+        {
+          "size": 10000,
+          "duration": 183284225
+        },
+        {
+          "size": 100000,
+          "duration": 21113041013
+        }
+      ]
+    },
+    {
+      "algorithm_name": "SelectionSort",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 31365
+        },
+        {
+          "size": 1000,
+          "duration": 572175
+        },
+        {
+          "size": 10000,
+          "duration": 41220942
+        },
+        {
+          "size": 100000,
+          "duration": 3729582708
+        }
+      ]
+    },
+    {
+      "algorithm_name": "InsertionSort",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 6386
+        },
+        {
+          "size": 1000,
+          "duration": 164931
+        },
+        {
+          "size": 10000,
+          "duration": 14797103
+        },
+        {
+          "size": 100000,
+          "duration": 1301519740
+        }
+      ]
+    },
+    {
+      "algorithm_name": "MergeSort",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 53972
+        },
+        {
+          "size": 1000,
+          "duration": 344808
+        },
+        {
+          "size": 10000,
+          "duration": 3289926
+        },
+        {
+          "size": 100000,
+          "duration": 34390792
+        }
+      ]
+    },
+    {
+      "algorithm_name": "MergeSortConc",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 35698
+        },
+        {
+          "size": 1000,
+          "duration": 381629
+        },
+        {
+          "size": 10000,
+          "duration": 1291783
+        },
+        {
+          "size": 100000,
+          "duration": 23476775
+        }
+      ]
+    },
+    {
+      "algorithm_name": "QuickSort",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 5535
+        },
+        {
+          "size": 1000,
+          "duration": 68185
+        },
+        {
+          "size": 10000,
+          "duration": 830465
+        },
+        {
+          "size": 100000,
+          "duration": 11040543
+        }
+      ]
+    },
+    {
+      "algorithm_name": "QuickSortConc",
+      "algorithm_results": [
+        {
+          "size": 100,
+          "duration": 25663
+        },
+        {
+          "size": 1000,
+          "duration": 69208
+        },
+        {
+          "size": 10000,
+          "duration": 659355
+        },
+        {
+          "size": 100000,
+          "duration": 6274731
+        }
+      ]
+    }
+  ]
+}
