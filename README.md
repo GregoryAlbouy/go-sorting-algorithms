@@ -2,7 +2,7 @@
 
 I had never realized how fascinating sorting algorithms could be, until I saw [this amazing video](https://www.youtube.com/watch?v=kPRA0W1kECg). It motivated to implement some of them in my favorite language, Go.
 
-I also tried to slightly improve the performance of some of them (see [mergesort.go](./algorithms/mergesort.go) and [quicksort.go](./algorithms/quicksort.go)) using concurrency, since it's so easy and pleasant to work with in Go. It can lead to up to 50% and 25% performance improvment respectively.
+I also tried to slightly improve the performance of some of them (see [mergesort.go](./sorting/mergesort.go) and [quicksort.go](./sorting/quicksort.go)) using concurrency, since it's so easy and pleasant to work with in Go. It can lead to up to 50% and 25% performance improvment respectively.
 
 Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or .json file.
 
