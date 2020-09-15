@@ -5,7 +5,7 @@ import (
 )
 
 func TestInsertionSort(t *testing.T) {
-	runTest(t, testableAlgorithm{"InsertionSort", InsertionSort, nil, nil})
+	runTest(t, testAlgorithm{"InsertionSort", InsertionSort, nil, nil})
 }
 
 func BenchmarkInsertionSort(b *testing.B) {

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
-	"time"
 
 	clog "github.com/gregoryalbouy/go-custom-log"
 )
@@ -15,7 +14,7 @@ type testcase struct {
 	expected    interface{}
 }
 
-type testableAlgorithm struct {
+type testAlgorithm struct {
 	name      string
 	sortFunc  sortFunc
 	testFunc  func(*testing.T)
@@ -23,7 +22,7 @@ type testableAlgorithm struct {
 }
 
 var (
-	testedAlgorithms = []testableAlgorithm{
+	testAlgorithms = []testAlgorithm{
 		{"BubbleSort", BubbleSort, TestBubbleSort, BenchmarkBubbleSort},
 		{"SelectionSort", SelectionSort, TestSelectionSort, BenchmarkSelectionSort},
 		{"InsertionSort", InsertionSort, TestInsertionSort, BenchmarkInsertionSort},
@@ -38,7 +37,7 @@ var (
 	benchsize = 10000
 )
 
-func runTest(t *testing.T, a testableAlgorithm) {
+func runTest(t *testing.T, a testAlgorithm) {
 	testcases := []testcase{
 		{
 			description: "positive ints",
@@ -79,25 +78,6 @@ func runTest(t *testing.T, a testableAlgorithm) {
 	}
 }
 
-func runBenchmark(b *testing.B, sfm sortFuncMap, inputLen ...int) {
-	const defLen = 100000
-
-	length := defLen
-	if len(inputLen) > 0 {
-		length = inputLen[0]
-	}
-
-	input := RandomSlice(length)
-
-	for sfname, sf := range sfm {
-		t0 := time.Now()
-		sf(input)
-		tf := time.Since(t0)
-
-		fmt.Printf("%s: %v\n", sfname, tf)
-	}
-}
-
 func check(t *testing.T, tc testcase, got interface{}) {
 	if !reflect.DeepEqual(got, tc.expected) {
 		t.Errorf("%s: expected %v, got %v", tc.description, tc.expected, got)
@@ -112,13 +92,13 @@ func checkIntegrity(t *testing.T, input, clone []int) {
 }
 
 func TestAll(t *testing.T) {
-	for _, a := range testedAlgorithms {
+	for _, a := range testAlgorithms {
 		t.Run(a.name, a.testFunc)
 	}
 }
 
 func BenchmarkAll(b *testing.B) {
-	for _, a := range testedAlgorithms {
+	for _, a := range testAlgorithms {
 		b.Run(a.name, a.benchFunc)
 	}
 }

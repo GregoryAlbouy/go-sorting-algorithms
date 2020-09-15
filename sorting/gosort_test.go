@@ -3,7 +3,7 @@ package sorting
 import "testing"
 
 func TestGoSort(t *testing.T) {
-	runTest(t, testableAlgorithm{"GoSort", GoSort, nil, nil})
+	runTest(t, testAlgorithm{"GoSort", GoSort, nil, nil})
 }
 
 func BenchmarkGoSort(b *testing.B) {

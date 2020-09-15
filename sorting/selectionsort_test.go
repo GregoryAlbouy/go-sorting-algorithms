@@ -5,7 +5,7 @@ import (
 )
 
 func TestSelectionSort(t *testing.T) {
-	runTest(t, testableAlgorithm{"SelectionSort", SelectionSort, nil, nil})
+	runTest(t, testAlgorithm{"SelectionSort", SelectionSort, nil, nil})
 }
 
 func BenchmarkSelectionSort(b *testing.B) {

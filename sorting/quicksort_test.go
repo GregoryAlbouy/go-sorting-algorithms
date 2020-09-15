@@ -5,11 +5,11 @@ import (
 )
 
 func TestQuickSort(t *testing.T) {
-	runTest(t, testableAlgorithm{"QuickSort", QuickSort, nil, nil})
+	runTest(t, testAlgorithm{"QuickSort", QuickSort, nil, nil})
 }
 
 func TestQuickSortConc(t *testing.T) {
-	runTest(t, testableAlgorithm{"QuickSortConc", QuickSortConc, nil, nil})
+	runTest(t, testAlgorithm{"QuickSortConc", QuickSortConc, nil, nil})
 }
 
 func BenchmarkQuickSort(b *testing.B) {

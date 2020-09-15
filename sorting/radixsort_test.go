@@ -5,7 +5,7 @@ import (
 )
 
 func TestRadixSort(t *testing.T) {
-	runTest(t, testableAlgorithm{"RadixSort", RadixSort, nil, nil})
+	runTest(t, testAlgorithm{"RadixSort", RadixSort, nil, nil})
 }
 
 func BenchmarkRadixSort(b *testing.B) {

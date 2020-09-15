@@ -2,13 +2,16 @@ package sorting
 
 type sortFunc func([]int) []int
 
-type sortFuncMap map[string]sortFunc
-
 // Algorithm represents a sorting algorithm. It has a name and a sorting
 // function.
 type Algorithm struct {
 	Name string
 	Sort sortFunc
+}
+
+// Sorter implements a function Sort([]int) []int
+type Sorter interface {
+	Sort([]int) []int
 }
 
 // AllAlgorithms is a slice referencing all sorting algorithms in this package.

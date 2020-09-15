@@ -55,6 +55,22 @@ func max(a, b int) int {
 	return a
 }
 
+func minmax(arr []int) (int, int) {
+	n := len(arr)
+	min, max := arr[0], arr[0]
+
+	for i := 1; i < n; i++ {
+		v := arr[i]
+		if v < min {
+			min = v
+		}
+		if v > max {
+			max = v
+		}
+	}
+	return min, max
+}
+
 // digitAt returns the digit at position i (starting from the right at i=0).
 func digitAt(n, i int) int {
 	return (abs(n) / powInt(10, i)) % 10
