@@ -30,6 +30,7 @@ Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or 
 * Merge Sort :heart: / Merge Sort Conc
 * Quick Sort / Quick Sort Conc
 * Radix Sort
+* Go Sort
 
 ### Coming
 
@@ -58,6 +59,7 @@ Each parameter accepts several values, in that case they must be **quoted** and 
 * QuickSort
 * QuickSortConc
 * RadixSort
+* GoSort
 
 ### Examples
 
