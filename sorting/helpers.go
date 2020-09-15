@@ -55,6 +55,7 @@ func max(a, b int) int {
 	return a
 }
 
+// minmax returns the minimum value and the maximum value of given slice.
 func minmax(arr []int) (int, int) {
 	n := len(arr)
 	min, max := arr[0], arr[0]

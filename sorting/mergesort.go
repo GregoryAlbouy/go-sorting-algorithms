@@ -18,7 +18,7 @@ func MergeSort(arr []int) []int {
 // from the input, using the Merge Sort algorithm. The input is unaltered.
 //
 // Unlike the regular MergeSort algorithm, it uses concurrency to accelerate
-// the process (~ +45% performance).
+// the process (up to +50% better performance).
 func MergeSortConc(arr []int) []int {
 	return mergeSort(arr, true)
 }
@@ -73,6 +73,8 @@ func mergeSort(arr []int, isConc bool) []int {
 	return merge(left, right)
 }
 
+// merge merges two input slices into a single one, picking values
+// in ascending order.
 func merge(a, b []int) []int {
 	var arr []int
 	m, n := len(a), len(b)
