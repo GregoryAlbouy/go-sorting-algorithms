@@ -1,7 +1,7 @@
 package algorithms
 
 // InsertionSort returns a slice of integers sorted in ascending order
-// from the input, using the Bubble Sort algorithm. The input is unaltered.
+// from the input, using the Insertion Sort algorithm. The input is unaltered.
 func InsertionSort(input []int) []int {
 	n := len(input)
 	arr := make([]int, n)
