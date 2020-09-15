@@ -25,4 +25,5 @@ var AllAlgorithms = []Algorithm{
 	{"QuickSortConc", QuickSortConc},
 	{"RadixSort", RadixSort},
 	{"GoSort", GoSort},
+	{"CountingSort", CountingSort},
 }

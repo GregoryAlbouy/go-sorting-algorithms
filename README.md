@@ -31,6 +31,7 @@ Finally, I wrote a CLI that benchmarks them and generates the data in a .csv or 
 * Quick Sort / Quick Sort Conc
 * Radix Sort
 * Go Sort
+* Counting Sort
 
 ### Coming
 
@@ -60,6 +61,7 @@ Each parameter accepts several values, in that case they must be **quoted** and 
 * QuickSortConc
 * RadixSort
 * GoSort
+* CountingSort
 
 ### Examples
 

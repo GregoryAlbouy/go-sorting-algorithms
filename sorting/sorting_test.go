@@ -32,6 +32,7 @@ var (
 		{"QuickSortConc", QuickSortConc, TestQuickSortConc, BenchmarkQuickSortConc},
 		{"RadixSort", RadixSort, TestRadixSort, BenchmarkRadixSort},
 		{"GoSort", GoSort, TestGoSort, BenchmarkGoSort},
+		{"CountingSort", CountingSort, TestCountingSort, BenchmarkCountingSort},
 	}
 
 	benchsize = 10000
