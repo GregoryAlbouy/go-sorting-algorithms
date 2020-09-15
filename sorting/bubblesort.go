@@ -1,4 +1,4 @@
-package algorithms
+package sorting
 
 // BubbleSort returns a slice of integers sorted in ascending order
 // from the input, using the Bubble Sort algorithm. The input is unaltered.

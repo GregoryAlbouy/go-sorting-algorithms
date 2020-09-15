@@ -6,17 +6,8 @@ import (
 	"time"
 
 	clog "github.com/gregoryalbouy/go-custom-log"
-	alg "github.com/gregoryalbouy/go-sorting-algorithms/algorithms"
+	"github.com/gregoryalbouy/go-sorting-algorithms/sorting"
 )
-
-// SortFunc type
-type SortFunc func([]int) []int
-
-// SortingAlgorithm struct
-type SortingAlgorithm struct {
-	name     string
-	function SortFunc
-}
 
 // AlgoResult struct
 type AlgoResult struct {
@@ -39,19 +30,8 @@ type FinalResult struct {
 }
 
 var (
-	defAlgorithms = []SortingAlgorithm{
-		{"BubbleSort", alg.BubbleSort},
-		{"SelectionSort", alg.SelectionSort},
-		{"InsertionSort", alg.InsertionSort},
-		{"MergeSort", alg.MergeSort},
-		{"MergeSortConc", alg.MergeSortConc},
-		{"QuickSort", alg.QuickSort},
-		{"QuickSortConc", alg.QuickSortConc},
-		{"RadixSort", alg.RadixSort},
-		{"GoSort", alg.GoSort},
-	}
-
-	defInput = []int{100, 1000, 10000}
+	defAlgorithms = sorting.AllAlgorithms
+	defInput      = []int{100, 1000, 10000}
 )
 
 func main() {
@@ -83,19 +63,19 @@ func run() error {
 	return nil
 }
 
-func genTests(algos []SortingAlgorithm, sizes []int) []AlgoResult {
+func genTests(algos []sorting.Algorithm, sizes []int) []AlgoResult {
 	var results []AlgoResult
 	totalT0 := time.Now()
 
 	for _, algo := range algos {
 		var algoResults []SizeResult
 		algoT0 := time.Now()
-		fmt.Printf("%s ", algo.name)
+		fmt.Printf("%s ", algo.Name)
 
 		for _, size := range sizes {
-			input := alg.RandomSlice(size)
+			input := sorting.RandomSlice(size)
 			sizeT0 := time.Now()
-			algo.function(input)
+			algo.Sort(input)
 			sizeT1 := time.Since(sizeT0)
 
 			algoResults = append(algoResults, SizeResult{size, sizeT1})
@@ -103,8 +83,8 @@ func genTests(algos []SortingAlgorithm, sizes []int) []AlgoResult {
 		}
 
 		algoT1 := time.Since(algoT0)
-		results = append(results, AlgoResult{algo.name, algoResults})
-		fmt.Printf("\n%s %s (%v)\n", clog.Green("OK"), algo.name, algoT1)
+		results = append(results, AlgoResult{algo.Name, algoResults})
+		fmt.Printf("\n%s %s (%v)\n", clog.Green("OK"), algo.Name, algoT1)
 	}
 
 	totalT1 := time.Since(totalT0)

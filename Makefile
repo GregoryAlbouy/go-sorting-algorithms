@@ -5,22 +5,22 @@ build:
 	GOOS=windows GOARCH=amd64 go build -o ./bin/gsa.exe
 
 tests:
-	@cd algorithms && go test -run TestAll
+	@cd sorting && go test -run TestAll
 
 benchmarks:
-	@cd algorithms && go test -run=" " -bench BenchmarkAll
+	@cd sorting && go test -run=" " -bench BenchmarkAll
 
 runtest:
-	@cd algorithms && go test -run $(t)
+	@cd sorting && go test -run $(t)
 
 runbench:
-	@cd algorithms && go test -run=" " -bench $(b)
+	@cd sorting && go test -run=" " -bench $(b)
 
-quickcompare:
-
+clitest:
+	@go run . -s "100 1000 10000" -o "test.csv test.json"
 
 example:
-	@go run . -s "100 1000 10000 100000" -output "_example/results.csv _example/results.json"
+	@go run . -s "100 1000 10000 100000" -o "_example/results.csv _example/results.json"
 
 servedoc:
 	@godoc -http=:8080

@@ -1,4 +1,4 @@
-package algorithms
+package sorting
 
 // InsertionSort returns a slice of integers sorted in ascending order
 // from the input, using the Insertion Sort algorithm. The input is unaltered.

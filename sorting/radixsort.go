@@ -1,4 +1,4 @@
-package algorithms
+package sorting
 
 // RadixSort returns a slice of integers sorted in ascending order
 // from the input, using the Radix Sort algorithm. The input is unaltered.

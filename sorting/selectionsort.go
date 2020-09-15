@@ -1,4 +1,4 @@
-package algorithms
+package sorting
 
 // SelectionSort sorts a slice of integers by ascending order
 // using the Selection Sort algorithm.

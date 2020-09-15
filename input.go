@@ -6,9 +6,11 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/gregoryalbouy/go-sorting-algorithms/sorting"
 )
 
-func parseInput() (algos []SortingAlgorithm, sizes []int, outputs []string, err error) {
+func parseInput() (algos []sorting.Algorithm, sizes []int, outputs []string, err error) {
 	algoStr := flag.String("a", "", "algorithms to compare")
 	sizeStr := flag.String("s", "", "sizes of input arrays")
 	output := flag.String("o", "results.csv", "output path")
@@ -27,13 +29,13 @@ func parseInput() (algos []SortingAlgorithm, sizes []int, outputs []string, err 
 	return
 }
 
-func algoSlice(input string) ([]SortingAlgorithm, error) {
+func algoSlice(input string) ([]sorting.Algorithm, error) {
 	if input == "" {
 		return defAlgorithms, nil
 	}
 
 	inputSlice := strings.Fields(input)
-	output := []SortingAlgorithm{}
+	output := []sorting.Algorithm{}
 
 	for _, s := range inputSlice {
 		algo, err := findAlgoByName(s)
@@ -68,19 +70,19 @@ func intSlice(input string) ([]int, error) {
 	return output, nil
 }
 
-func algoNames(algos []SortingAlgorithm) (names []string) {
+func algoNames(algos []sorting.Algorithm) (names []string) {
 	for _, a := range algos {
-		names = append(names, a.name)
+		names = append(names, a.Name)
 	}
 	return
 }
 
-func findAlgoByName(name string) (SortingAlgorithm, error) {
+func findAlgoByName(name string) (sorting.Algorithm, error) {
 	for _, algo := range defAlgorithms {
-		if strings.ToLower(name) == strings.ToLower(algo.name) {
+		if strings.ToLower(name) == strings.ToLower(algo.Name) {
 			return algo, nil
 		}
 	}
 
-	return SortingAlgorithm{}, fmt.Errorf("algorithm %s does not exist", name)
+	return sorting.Algorithm{}, fmt.Errorf("algorithm %s does not exist", name)
 }
