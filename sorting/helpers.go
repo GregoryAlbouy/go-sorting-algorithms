@@ -27,7 +27,7 @@ func swap(arr []int, i, j int) {
 	arr[i], arr[j] = arr[j], arr[i]
 }
 
-// abs returns the absolute value of a given int. Avoids float64 converison
+// abs returns the absolute value of a given int. Avoids float64 conversion
 // steps from math.Abs().
 func abs(n int) int {
 	if n < 0 {

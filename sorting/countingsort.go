@@ -3,7 +3,7 @@ package sorting
 // CountingSort returns a slice of integers sorted in ascending order
 // from the input, using the Counting Sort algorithm. The input is unaltered.
 //
-// This version is slighlty changed to accept negative numbers. If the input
+// This version is slightly changed to accept negative numbers. If the input
 // contains negative values, |min| is added to the size of the counting slice
 // and the negative values are counted on indexes following the positive values
 // (i.e. i > max).
