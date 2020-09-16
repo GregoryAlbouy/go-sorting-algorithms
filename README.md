@@ -1,4 +1,3 @@
-![Go Report Card](https://goreportcard.com/badge/github.com/gregoryalbouy/go-sorting-algorithms)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/gregoryalbouy/go-sorting-algorithms)](https://pkg.go.dev/github.com/gregoryalbouy/go-sorting-algorithms)
 
 # go-sorting-algorithms
