@@ -8,13 +8,13 @@ tests:
 	@cd sorting && go test -run TestAll
 
 benchmarks:
-	@cd sorting && go test -run=" " -bench BenchmarkAll
+	@cd sorting && go test -run=" " -benchmem -bench=./...
 
 runtest:
 	@cd sorting && go test -run $(t)
 
 runbench:
-	@cd sorting && go test -run=" " -bench $(b)
+	@go test -run=" " -benchmem -bench=$(b)
 
 clitest:
 	@go run . -s "100 1000 10000" -o "test.csv test.json"
